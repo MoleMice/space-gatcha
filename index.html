@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Body Game</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <!--
+        game.js is a JavaScript module because
+        MediaPipe is imported from its CDN.
+    -->
+    <script
+        type="module"
+        src="game.js"
+    ></script>
+
+</head>
+
+
+<body>
+
+    <div id="app">
+
+        <!-- =========================
+             HEADER
+        ========================== -->
+
+        <header>
+
+            <div>
+
+                <h1>BODY GAME</h1>
+
+                <p>
+                    Move your body to play
+                </p>
+
+            </div>
+
+            <div id="fps">
+                FPS: --
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             CAMERA / GAME
+        ========================== -->
+
+        <main>
+
+            <section id="cameraArea">
+
+                <!--
+                    The camera video.
+                -->
+
+                <video
+                    id="camera"
+                    autoplay
+                    playsinline
+                    muted
+                ></video>
+
+
+                <!--
+                    The body skeleton is drawn here.
+                -->
+
+                <canvas
+                    id="skeletonCanvas"
+                ></canvas>
+
+
+                <!--
+                    The actual game is drawn here.
+                -->
+
+                <canvas
+                    id="gameCanvas"
+                ></canvas>
+
+
+                <!--
+                    Message shown before
+                    the camera starts.
+                -->
+
+                <div id="cameraMessage">
+
+                    <div class="cameraIcon">
+                        📷
+                    </div>
+
+                    <h2>
+                        Camera required
+                    </h2>
+
+                    <p>
+                        Press START CAMERA
+                        and allow camera access.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 BUTTONS
+            ========================== -->
+
+            <section id="controls">
+
+                <button
+                    id="startButton"
+                >
+                    START CAMERA
+                </button>
+
+
+                <button
+                    id="flipButton"
+                >
+                    FLIP CAMERA
+                </button>
+
+
+                <button
+                    id="pauseButton"
+                    disabled
+                >
+                    PAUSE
+                </button>
+
+            </section>
+
+
+            <!-- =========================
+                 STATUS
+            ========================== -->
+
+            <section id="status">
+
+                <div class="statusCard">
+
+                    <span>
+                        Status
+                    </span>
+
+                    <strong id="trackingStatus">
+                        Camera off
+                    </strong>
+
+                </div>
+
+
+                <div class="statusCard">
+
+                    <span>
+                        Pose
+                    </span>
+
+                    <strong id="poseStatus">
+                        Not detected
+                    </strong>
+
+                </div>
+
+
+                <div class="statusCard">
+
+                    <span>
+                        Score
+                    </span>
+
+                    <strong id="score">
+                        0
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 INSTRUCTIONS
+            ========================== -->
+
+            <section id="instructions">
+
+                <h2>
+                    How to play
+                </h2>
+
+
+                <div class="instructionsGrid">
+
+                    <div>
+
+                        <b>
+                            🧍 Move your body
+                        </b>
+
+                        <p>
+                            Move left and right
+                            to control the player.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <b>
+                            🎯 Catch targets
+                        </b>
+
+                        <p>
+                            Move the player
+                            into falling targets.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <b>
+                            🦴 Body tracking
+                        </b>
+
+                        <p>
+                            Your shoulders,
+                            arms and legs are tracked.
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <b>
+                            📱 Mobile
+                        </b>
+
+                        <p>
+                            The game also works
+                            on mobile browsers.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- =========================
+             FOOTER
+        ========================== -->
+
+        <footer>
+
+            Body Game
+
+            <br>
+
+            Camera processing happens
+            locally in your browser.
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
